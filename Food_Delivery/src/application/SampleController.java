@@ -30,7 +30,6 @@ public class SampleController{
 	    }
 	}
 
-	
 	public void switchtoScene2(ActionEvent e) throws IOException {
 		try {
 			root = (Parent)FXMLLoader.load(getClass().getResource("Signup.fxml"));
