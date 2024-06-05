@@ -1,11 +1,7 @@
 package application;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.time.LocalDate;
 
 import javafx.event.ActionEvent;
@@ -44,28 +40,12 @@ public class SignupController {
 
     @FXML
     private DatePicker dob_field;
+    
 
     public void signupHandler(ActionEvent event) throws IOException {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/food_delivery"; // Replace with your database name
-        String username = "root"; // Replace with your database username
-        String password = "pass"; // Replace with your database password
-
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
+    	DatabaseManager dab = new DatabaseManager();
 
         try {
-            // Load the MySQL JDBC driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Establish the connection
-            connection = DriverManager.getConnection(jdbcUrl, username, password);
-            System.out.println("Connection established successfully!");
-            String sql = "INSERT INTO customer_info (Name, User_name, Password, Phone_no, Address, DOB, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-            // Create a PreparedStatement
-            preparedStatement = connection.prepareStatement(sql);
-
-            // Get user input
             String name = name_field.getText();
             String user_name = username_field.getText();
             String passw = password_field.getText();
@@ -74,56 +54,13 @@ public class SignupController {
             LocalDate dob = dob_field.getValue();
             Date birthDate = Date.valueOf(dob); // Convert LocalDate to java.sql.Date
             String email = email_field.getText();
+            
+            dab.createUser(name, user_name, passw, phone, address, birthDate, email);
+            switchtoScene1(event);
 
-            // Ensure fields are not empty
-            if (name.isEmpty() || user_name.isEmpty() || passw.isEmpty() || phone.isEmpty() || address.isEmpty() || dob == null || email.isEmpty()) {
-                System.out.println("Please fill in all fields.");
-                return;
-            }
-
-            // Set the values in the PreparedStatement
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, user_name);
-            preparedStatement.setString(3, passw);
-            preparedStatement.setString(4, phone);
-            preparedStatement.setString(5, address);
-            preparedStatement.setDate(6, birthDate);
-            preparedStatement.setString(7, email);
-
-            // Execute the PreparedStatement
-            int rowsAffected = preparedStatement.executeUpdate();
-            System.out.println(rowsAffected + " row(s) inserted.");
-
-            if (rowsAffected > 0) {
-                // Switch back to the main page
-                switchtoScene1(event);
-            } else {
-                System.out.println("Failed to insert the record.");
-            }
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("MySQL JDBC Driver not found.");
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("SQL Exception: " + e.getMessage());
-        } finally {
-            if (preparedStatement != null) {
-                try {
-                    preparedStatement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    System.out.println("Failed to close PreparedStatement: " + e.getMessage());
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    System.out.println("Failed to close Connection: " + e.getMessage());
-                }
-            }
+        }
+        catch (Exception e) {
+        	System.out.print("Unexpected error"+e);
         }
     }
 
