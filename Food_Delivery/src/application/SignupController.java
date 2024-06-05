@@ -48,7 +48,7 @@ public class SignupController {
     public void signupHandler(ActionEvent event) throws IOException {
         String jdbcUrl = "jdbc:mysql://localhost:3306/food_delivery"; // Replace with your database name
         String username = "root"; // Replace with your database username
-        String password = "@Kurt200516"; // Replace with your database password
+        String password = "pass"; // Replace with your database password
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
