@@ -6,8 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,13 +17,13 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="backdrop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1092.0" stylesheets="@Main_page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<BorderPane id="backdrop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1092.0" stylesheets="@Main_page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainMenuController">
    <top>
       <HBox id="Top_nav" alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="1092.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="56.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-22%20195315.png" />
+                  <Image url="@../All_imgs/Screenshot%202024-05-22%20195315.png" />
                </image>
                <HBox.margin>
                   <Insets left="20.0" />
@@ -40,28 +38,11 @@
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
-               <children>
-                  <TextField id="Search_bar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="34.0" prefWidth="235.0">
-                     <effect>
-                        <DropShadow height="2.34" radius="0.6549999999999998" width="2.28" />
-                     </effect></TextField>
-                  <ImageView fitHeight="47.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-25%20160157.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="15.0" />
-                     </HBox.margin>
-                     <effect>
-                        <Blend mode="DARKEN" />
-                     </effect>
-                  </ImageView>
-               </children>
             </HBox>
             <Pane prefHeight="100.0" prefWidth="25.0" />
             <HBox prefHeight="100.0" prefWidth="685.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="101.0" prefWidth="462.0" text="Welcome Back !">
+                  <Label fx:id="welc_label" alignment="CENTER_RIGHT" prefHeight="101.0" prefWidth="462.0" text="Welcome Back !">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -71,7 +52,7 @@
                   </Label>
                   <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-25%20161120.png" />
+                        <Image url="@../All_imgs/Screenshot%202024-05-25%20161120.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="20.0" top="17.0" />
@@ -94,20 +75,20 @@
          <children>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="65.0" prefWidth="164.0">
                <children>
-                  <Button id="Home_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="202.0" text="Home">
+                  <Button id="Home_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#initialize" prefHeight="30.0" prefWidth="202.0" text="Home">
                      <HBox.margin>
-                        <Insets left="10.0" top="20.0" />
+                        <Insets right="20.0" top="20.0" />
                      </HBox.margin>
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-                     </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Button>
                   <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-25%20163147.png" />
+                        <Image url="@../All_imgs/Screenshot%202024-05-25%20163147.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" top="22.0" />
@@ -125,20 +106,20 @@
             </Line>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="175.0">
                <children>
-                  <Button id="View_cart" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" text="View Cart">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-                     </font>
+                  <Button id="View_cart" fx:id="cart_button" mnemonicParsing="false" onAction="#initialize" prefHeight="34.0" prefWidth="106.0" text="View Cart">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Button>
                   <ImageView fitHeight="24.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-25%20164226.png" />
+                        <Image url="@../All_imgs/Screenshot%202024-05-25%20164226.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="15.0" top="26.0" />
@@ -156,20 +137,20 @@
             </Line>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="64.0" prefWidth="175.0">
                <children>
-                  <Button id="Profile" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" text="Profile">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-                     </font>
+                  <Button id="Profile" fx:id="profile_button" mnemonicParsing="false" onAction="#initialize" prefHeight="30.0" prefWidth="122.0" text="Profile">
                      <HBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Georgia" size="16.0" />
+                     </font>
                   </Button>
                   <ImageView fitHeight="24.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-25%20164911.png" />
+                        <Image url="@../All_imgs/Screenshot%202024-05-25%20164911.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="8.0" top="13.0" />
@@ -185,6 +166,45 @@
                   <Insets left="5.0" />
                </VBox.margin>
             </Line>
+            <Pane prefHeight="361.0" prefWidth="198.0">
+               <children>
+                  <Button id="logout" fx:id="logout_button" layoutX="32.0" layoutY="300.0" mnemonicParsing="false" onAction="#initialize" text="Logout">
+                     <font>
+                        <Font name="Georgia Bold Italic" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="130.0" layoutY="295.0" text="↩">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="-4.0" layoutY="-1.0" prefHeight="75.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="75.0" prefWidth="200.0">
+                           <children>
+                              <Button id="contact" fx:id="contact_button" layoutX="23.0" layoutY="34.0" mnemonicParsing="false" onAction="#initialize" text="Contact Us">
+                                 <font>
+                                    <Font name="Georgia" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label layoutX="143.0" layoutY="32.0" text="☎">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="80.0" layoutX="110.0" layoutY="92.0" startX="-100.0" stroke="#8f6304c7" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
          </children>
          <BorderPane.margin>
             <Insets top="3.0" />
@@ -223,7 +243,7 @@
                   </Pane>
                   <ImageView fitHeight="239.0" fitWidth="295.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../OneDrive/Desktop/ALL_Images/Screenshot%202024-05-25%20151646.png" />
+                        <Image url="@../All_imgs/Screenshot%202024-05-25%20151646.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="45.0" top="10.0" />
@@ -257,12 +277,12 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="45.0" layoutY="68.0" text="For Only $ 11.99">
+                                          <Label layoutX="46.0" layoutY="68.0" text="For Only ₹ 250">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="44.0" layoutY="103.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Add to Cart">
+                                          <Button id="add_cart" fx:id="addToCartButton1" layoutX="44.0" layoutY="103.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="108.0" text="Add to Cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -289,12 +309,12 @@
                                                 <Font name="Georgia" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="35.0" layoutY="50.0" text="For Only $7.99">
+                                          <Label layoutX="35.0" layoutY="50.0" text="For Only ₹ 145">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="31.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Add to Cart">
+                                          <Button id="add_cart" fx:id="addToCartButton4" layoutX="31.0" layoutY="88.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="105.0" text="Add to Cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -321,12 +341,12 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="35.0" layoutY="68.0" text="For Only $6">
+                                          <Label layoutX="35.0" layoutY="68.0" text="For Only ₹ 150">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="28.0" layoutY="99.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Add to Cart">
+                                          <Button id="add_cart" fx:id="addToCartButton7" layoutX="28.0" layoutY="99.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="102.0" text="Add to Cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -361,12 +381,12 @@
                                                 <Font name="Georgia" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="27.0" layoutY="65.0" text="For Only $14">
+                                          <Label layoutX="21.0" layoutY="65.0" text="For Only ₹ 320">
                                              <font>
                                                 <Font name="Georgia Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="20.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Add to Cart">
+                                          <Button id="add_cart" fx:id="addToCartButton2" layoutX="20.0" layoutY="101.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="103.0" text="Add to Cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -393,12 +413,12 @@
                                                 <Font size="16.5" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="25.0" layoutY="56.0" text="For Only $9.99">
+                                          <Label layoutX="25.0" layoutY="56.0" text="For Only ₹ 160">
                                              <font>
-                                                <Font size="16.0" />
+                                                <Font name="Georgia Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="18.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Add to Cart">
+                                          <Button id="add_cart" fx:id="addToCartButton5" layoutX="18.0" layoutY="94.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="105.0" text="Add to Cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -425,11 +445,11 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="28.0" layoutY="68.0" text="For Only $3.45">
+                                          <Label layoutX="28.0" layoutY="68.0" text="Only For ₹ 210">
                                              <font>
                                                 <Font size="16.0" />
                                              </font></Label>
-                                          <Button id="add_cart" layoutX="23.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Add to Cart">
+                                          <Button id="add_cart" fx:id="addToCartButton8" layoutX="23.0" layoutY="100.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="101.0" text="Add to Cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -460,12 +480,12 @@
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="27.0" layoutY="59.0" text="For Only $2">
+                                          <Label layoutX="24.0" layoutY="59.0" text="For Only ₹ 80">
                                              <font>
                                                 <Font name="Georgia Italic" size="15.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="14.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Add to cart">
+                                          <Button id="add_cart" fx:id="addToCartButton3" layoutX="14.0" layoutY="101.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="109.0" text="Add to cart">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -487,17 +507,17 @@
                                     </ImageView>
                                     <Pane prefHeight="130.0" prefWidth="123.0">
                                        <children>
-                                          <Label layoutX="17.0" layoutY="26.0" text="Mint Mojito">
+                                          <Label layoutX="19.0" layoutY="26.0" text="Mint Mojito">
                                              <font>
                                                 <Font name="Georgia" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="11.0" layoutY="56.0" text="For Only $3.99">
+                                          <Label layoutX="19.0" layoutY="56.0" text="For Only ₹ 90">
                                              <font>
                                                 <Font name="Georgia" size="15.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Add to Cart" />
+                                          <Button id="add_cart" fx:id="addToCartButton6" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="107.0" text="Add to Cart" />
                                        </children>
                                     </Pane>
                                  </children>
@@ -520,12 +540,12 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="14.0" layoutY="63.0" text="For Only $4">
+                                          <Label layoutX="14.0" layoutY="63.0" text="Only for ₹ 120">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Button id="add_cart" layoutX="8.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add to Cart" />
+                                          <Button id="add_cart" fx:id="addToCartButton9" layoutX="8.0" layoutY="94.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="100.0" text="Add to Cart" />
                                        </children>
                                     </Pane>
                                  </children>
